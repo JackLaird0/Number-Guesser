@@ -1,0 +1,147 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #404041;
+  height: 133px;
+} 
+
+h1 {  
+font-size: 75px;
+text-align: center;
+margin: 0;
+height: 133px;
+padding-top: 12px;
+}
+
+.guess {
+  width: 560px;
+  height: 56px;
+  border-style: solid;
+  border-color: #bcbebf;
+  display: block;
+  font-size: 40px;
+  font-weight: 300;
+  color: #929497;
+  padding-left: 10px;
+  padding-bottom: 3px;
+  margin: 64px auto;
+}
+
+.number {
+  color: #ed458b;
+  font-weight: 700;
+}
+
+.accent-color {
+  color: #e6e7e8;
+  font-weight: 300;
+} 
+
+button {
+  border-radius: 30px;
+  background-color: #929497;
+  border: none;
+  color: #ffffff;
+  font-weight: 300;
+  outline: none;
+}
+
+input::placeholder { 
+  color: #d0d2d3;
+}
+div {
+  position: relative;
+  width: 560px;
+  display: block;
+  margin: 0 auto;
+  height: 58px;
+}
+
+.main-button-guess,
+.clear {
+  width: 260px;
+  height:58px;
+  font-size: 37px;    
+  position: absolute;
+  }
+
+.main-button-guess {
+  left: 0px;
+}
+
+.clear {
+  right: 0px;
+}
+
+.reset {
+  width: 560px;
+  height: 50px;
+  font-size: 30px;
+  display: block;
+  margin: 80px auto;
+}
+
+.main-p-instruct { 
+font-size: 35px;
+font-weight: 300;
+text-align: center;
+}
+
+.main-p-number {
+  font-weight: 300;
+  font-size: 255px;
+  text-align: center;
+  color: #eb008b;
+  margin-top: -89px;
+  margin-bottom: -75px;
+}
+
+.hint {
+  font-size: 35px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.minput,
+.maxput { 
+  width: 260px;
+  height:58px;
+  position: absolute;
+  border-style: solid;
+  border-color: #bcbebf;
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  color: #929497;
+  padding-left: 7px;
+  padding-bottom: 2px;
+}
+
+.minput {
+  left: 0;
+}
+
+.maxput {
+  right: 0;
+}
+.hard-game {
+  display: block;
+  margin: 80px auto;
+  width: 260px;
+  height:58px;
+  font-size: 37px;  
+}
+
+button:hover {
+  background-color: #eb008b;
+  transition: 1s;
+}
+button:disabled {
+  background-color: #d0d2d3
+}

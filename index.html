@@ -1,0 +1,36 @@
+<!Doctype html>
+  <html lang="en">
+    <head>
+      <link rel="icon" href="https://icon-icons.com/icons2/1146/PNG/512/1486485572-add-new-plus-maximize-window-tab_81183.png" type="image/x-icon">
+      <title>Number Guesser </title>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+      <header>
+        <h1 class="number"> Number  <span class="accent-color"> Guesser </span> </h1>
+      </header> 
+      <main>
+        <form autocomplete="off">
+          <input class="guess" type="text" name="guess" placeholder="Enter your guess" /> 
+        <div class="guess-clear-div">
+          <button name="enter" class="main-button-guess" disabled> Guess </button>
+          <button name="delete" class="clear" disabled> Clear </button>
+        </div>  
+        </form>
+          <p class="main-p-instruct"> Guess a number between 0 and 100 </p>
+          <p class="main-p-number"> N/A </p>
+          <p class="hint"> I'll say if it's too high or too low </p>
+          <button name="new-game" class="reset" type="reset" value="Reset" disabled> Reset </button> 
+        <form>
+          <div>
+            <input type="text" class="minput" placeholder="New Minimum"/>
+            <input type="text" class="maxput" placeholder="New Maximum"/> 
+          </div>  
+            <button name="hard-game" class="hard-game" hidden> Harder Game </button>
+        </form> 
+      </main> 
+     <script src="script.js" type="text/javascript"></script>
+    </body>
+  </html>    
+ 
