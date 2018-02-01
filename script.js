@@ -2,19 +2,23 @@ var mainButton    = document.querySelector('.main-button-guess');
 var lastGuess     = document.querySelector('.main-p-number');
 var lastText      = document.querySelector('.main-p-instruct');
 var guessInput    = document.querySelector('.guess');
-var randomNumber  = Math.floor(Math.random()*100)
-var hintPar       = document.querySelector('.hint')
-var clearButton   = document.querySelector('.clear')
-var resetButton   = document.querySelector('.reset')
-var hardButton    = document.querySelector('.hard-game')
-var minimumInput  = document.querySelector('.minput')
-var maximumInput  = document.querySelector('.maxput')
+// var randomNumber  = Math.floor(Math.random()*100)
+var hintPar       = document.querySelector('.hint');
+var clearButton   = document.querySelector('.clear');
+var resetButton   = document.querySelector('.reset');
+var minimumInput  = 0;
+var maximumInput  = 100;
+var newMinimumInput = document.querySelector('.minput');
+var newMaximumInput = document.querySelector('.maxput');
+var submitButton  = document.querySelector('.hard-game')
+var hiddenDiv = document.querySelector('.min-max-div')
 
-function increaseRandomRange(min, max) {
+function randomInput(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
-  increaseRandomRange(minimumInput, maximumInput);}
+}
+var randomNumber = randomInput(minimumInput, maximumInput);
 
-mainButton.addEventListener('click', function (event){ 
+mainButton.addEventListener('click', function (event) { 
   event.preventDefault();
   lastGuess.innerText = guessInput.value;
   lastText.innerText ='Your last guess was';
@@ -24,7 +28,8 @@ mainButton.addEventListener('click', function (event){
     resetButton.removeAttribute('disabled');
     guessInput.value = '';
     clearButton.setAttribute('disabled', '');
-    hardButton.removeAttribute('hidden');
+    hiddenDiv.removeAttribute('hidden')
+    // increaseRandomRange(minimumInput, maximumInput);
   } else if (guessInt < randomNumber) {
     hintPar.innerText = 'That is too low. Try again';
     guessInput.value = '';
@@ -42,9 +47,9 @@ mainButton.addEventListener('click', function (event){
   mainButton.setAttribute('disabled', '')
 });
 
-guessInput.addEventListener('keyup', function (event){
+guessInput.addEventListener('keyup', function () {
   var guessInt = parseInt(guessInput.value);
-  if (guessInt >= 0 && guessInt <= 100) {
+  if (guessInt >= minimumInput && guessInt <= maximumInput) {
     mainButton.removeAttribute('disabled')
   } else {
     mainButton.setAttribute('disabled', '')
@@ -56,7 +61,7 @@ guessInput.addEventListener('keyup', function (event){
 }    
 });
  
-clearButton.addEventListener('click', function (event){
+clearButton.addEventListener('click', function (event) {
   event.preventDefault();
   guessInput.value = ''
   clearButton.setAttribute('disabled', '')
@@ -64,7 +69,7 @@ clearButton.addEventListener('click', function (event){
   mainButton.setAttribute('disabled', ' ')
 });
 
-resetButton.addEventListener('click', function(event){
+resetButton.addEventListener('click', function(event) {
   event.preventDefault();
   resetButton.setAttribute('disabled','')
   clearButton.setAttribute('disabled','')
@@ -74,16 +79,44 @@ resetButton.addEventListener('click', function(event){
   hintPar.innerText = "I'll say if it's too high or too low"
   randomNumber = Math.floor(Math.random()*100)
   guessInput.focus()
+  newMinimumInput.value = ''
+  newMaximumInput.value = ''
+});
+
+submitButton.addEventListener('click', function(evemt) {
+  event.preventDefault();
+  maximumInput = parseInt(newMaximumInput.value)
+  minimumInput = parseInt(newMinimumInput.value)  
+  randomNumber = randomInput (minimumInput, maximumInput)
+  console.log(randomNumber);
+  guessInput.focus()
+  submitButton.setAttribute('disabled', '')
 });
 
 
 
-hardButton.addEventListener('click', function(event){
-  event.preventDefault();
-  resetButton.setAttribute('disabled', '')
-  clearButton.setAttribute('disabled', '')
+newMaximumInput.addEventListener('keyup', function (){
+ if (newMaximumInput.value > 0 && newMinimumInput.value > 0) {
+  submitButton.removeAttribute('disabled')
+ } else { 
+  submitButton.setAttribute('disabled', '')
+ }
+ if (parseInt(newMinimumInput.value) > parseInt(newMaximumInput.value)) {
+  submitButton.setAttribute('disabled', '')
+ }
+});
 
+newMinimumInput.addEventListener('keyup', function () {
+  if (newMaximumInput.value > 0 && newMinimumInput.value > 0) {
+  submitButton.removeAttribute('disabled')
+ } else { 
+  submitButton.setAttribute('disabled', '')
+}
+if (parseInt(newMinimumInput.value) > parseInt(newMaximumInput.value)) {
+  submitButton.setAttribute('disabled', '')
+ }
+});
 
-
-})
 console.log(randomNumber)
+
+

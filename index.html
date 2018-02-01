@@ -23,11 +23,12 @@
           <p class="hint"> I'll say if it's too high or too low </p>
           <button name="new-game" class="reset" type="reset" value="Reset" disabled> Reset </button> 
         <form>
-          <div>
-            <input type="text" class="minput" placeholder="New Minimum"/>
-            <input type="text" class="maxput" placeholder="New Maximum"/> 
-          </div>  
-            <button name="hard-game" class="hard-game" hidden> Harder Game </button>
+          <div class="min-max-div" hidden>
+            <input type="text" class="minput" placeholder="New Minimum" hidden/>
+            <input type="text" class="maxput" placeholder="New Maximum" hidden/> 
+            
+          <button name="hard-game" class="hard-game" disabled> Submit</button>
+        </div>
         </form> 
       </main> 
      <script src="script.js" type="text/javascript"></script>
